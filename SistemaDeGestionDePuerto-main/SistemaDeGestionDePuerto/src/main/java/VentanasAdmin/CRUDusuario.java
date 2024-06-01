@@ -56,6 +56,7 @@ public class CRUDusuario extends javax.swing.JFrame {
         btnregistrar = new javax.swing.JButton();
         btnactualizar = new javax.swing.JButton();
         btnsalir = new javax.swing.JButton();
+        txtDNI = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtabledatos = new javax.swing.JTable();
@@ -120,6 +121,8 @@ public class CRUDusuario extends javax.swing.JFrame {
             }
         });
 
+        txtDNI.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DNI", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -140,7 +143,8 @@ public class CRUDusuario extends javax.swing.JFrame {
                                     .addGap(84, 84, 84)
                                     .addComponent(btnregistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 14, Short.MAX_VALUE))
-                    .addComponent(combotipo, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(combotipo, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtDNI))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -154,16 +158,20 @@ public class CRUDusuario extends javax.swing.JFrame {
                 .addComponent(txtapellido, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(txtcontrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(combotipo, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btnregistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnactualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44))
+                .addGap(14, 14, 14))
         );
+
+        txtDNI.getAccessibleContext().setAccessibleDescription("");
 
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "LISTA", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -252,12 +260,13 @@ public class CRUDusuario extends javax.swing.JFrame {
 
     private void btnregistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarActionPerformed
         try{
-            PreparedStatement ps=CConexion.prepareStatement("INSERT INTO usuario(TipoDeUsuario,idUsuario,NombreUsuario,ApellidoUsuario,Contraseña) VALUES(?,?,?,?,?)");
+            PreparedStatement ps=CConexion.prepareStatement("INSERT INTO usuario(TipoDeUsuario,idUsuario,dni,NombreUsuario,ApellidoUsuario,Contraseña) VALUES(?,?,?,?,?,?)");
             ps.setString(1, combotipo.getSelectedItem().toString());
             ps.setString(2, txtid.getText());
-            ps.setString(3, txtnombre.getText());
-            ps.setString(4, txtapellido.getText());
-            ps.setString(5, txtcontrasenia.getText());
+            ps.setString(3, txtDNI.getText());
+            ps.setString(4, txtnombre.getText());
+            ps.setString(5, txtapellido.getText());
+            ps.setString(6, txtcontrasenia.getText());
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Datos Guardados Correctamente");
             mostrardatos();
@@ -274,15 +283,16 @@ public class CRUDusuario extends javax.swing.JFrame {
         int fila=this.jtabledatos.getSelectedRow();
         this.combotipo.setSelectedItem(this.jtabledatos.getValueAt(fila, 0).toString());
         this.txtid.setText(this.jtabledatos.getValueAt(fila, 1).toString());
-        this.txtnombre.setText(this.jtabledatos.getValueAt(fila, 2).toString());
-        this.txtapellido.setText(this.jtabledatos.getValueAt(fila, 3).toString());
-        this.txtcontrasenia.setText(this.jtabledatos.getValueAt(fila, 4).toString());
+        this.txtDNI.setText(this.jtabledatos.getValueAt(fila, 2).toString());
+        this.txtnombre.setText(this.jtabledatos.getValueAt(fila, 3).toString());
+        this.txtapellido.setText(this.jtabledatos.getValueAt(fila, 4).toString());
+        this.txtcontrasenia.setText(this.jtabledatos.getValueAt(fila, 5).toString());
     }//GEN-LAST:event_jtabledatosMouseClicked
 
     private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
         try{
             PreparedStatement ps=CConexion.prepareStatement
-        ("Update usuario set TipoDeUsuario='"+combotipo.getSelectedItem()+"',NombreUsuario='"+txtnombre.getText()+"',ApellidoUsuario='"+txtapellido.getText()+"',Contraseña='"+txtcontrasenia.getText()+"' where idUsuario='"+txtid.getText()+"'");
+        ("Update usuario set TipoDeUsuario='"+combotipo.getSelectedItem()+"',NombreUsuario='"+txtnombre.getText()+"',ApellidoUsuario='"+txtapellido.getText()+"',Contraseña='"+txtcontrasenia.getText()+"',dni='"+txtDNI.getText()+"' where idUsuario='"+txtid.getText()+"'");
             int indice=ps.executeUpdate();
             
             if(indice>0){
@@ -355,6 +365,7 @@ public class CRUDusuario extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(CRUDusuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -376,6 +387,7 @@ public class CRUDusuario extends javax.swing.JFrame {
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jtabledatos;
+    private javax.swing.JTextField txtDNI;
     private javax.swing.JTextField txtapellido;
     private javax.swing.JTextField txtcontrasenia;
     private javax.swing.JTextField txtid;
@@ -386,12 +398,13 @@ public class CRUDusuario extends javax.swing.JFrame {
         DefaultTableModel modelo=new DefaultTableModel();
         modelo.addColumn("Tipo de Usuario");
         modelo.addColumn("id");
+        modelo.addColumn("DNI");
         modelo.addColumn("Nombre");
         modelo.addColumn("Apellido");
         modelo.addColumn("Contraseña");
         jtabledatos.setModel(modelo);
         String consultasql="select * from usuario";
-        String data[]=new String[5];
+        String data[]=new String[6];
         
         Statement st;
         try{
@@ -403,6 +416,7 @@ public class CRUDusuario extends javax.swing.JFrame {
                 data[2]=rs.getString(3);
                 data[3]=rs.getString(4);
                 data[4]=rs.getString(5);
+                data[5]=rs.getString(6);
                 modelo.addRow(data);
             }
         } catch(SQLException e){
