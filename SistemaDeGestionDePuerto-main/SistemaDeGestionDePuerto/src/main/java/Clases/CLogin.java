@@ -3,7 +3,7 @@ package Clases;
 
 import com.mycompany.sistemadegestiondepuerto.InterfazAdministradorSistema;
 import com.mycompany.sistemadegestiondepuerto.InterfazLogin;
-import com.mycompany.sistemadegestiondepuerto.InterfazOperadorAlmacenamiento;
+import com.mycompany.sistemadegestiondepuerto.InterfazDespachador;
 import com.mycompany.sistemadegestiondepuerto.InterfazOperadorEmbarque;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -43,7 +43,7 @@ public class CLogin {
                        interfazEmbarque.setVisible(true);
                        break;
                    case "Despachador":
-                       InterfazOperadorAlmacenamiento interfazAlmacenamiento = new InterfazOperadorAlmacenamiento();
+                       InterfazDespachador interfazAlmacenamiento = new InterfazDespachador();
                        interfazAlmacenamiento.setLocationRelativeTo(null);
                        interfazAlmacenamiento.setSize(890,490);
                        interfazAlmacenamiento.setVisible(true);
