@@ -4,7 +4,7 @@ package Clases;
 import com.mycompany.sistemadegestiondepuerto.InterfazAdministradorSistema;
 import com.mycompany.sistemadegestiondepuerto.InterfazLogin;
 import com.mycompany.sistemadegestiondepuerto.InterfazDespachador;
-import com.mycompany.sistemadegestiondepuerto.InterfazOperadorEmbarque;
+import com.mycompany.sistemadegestiondepuerto.InterfazVentas;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
@@ -37,11 +37,12 @@ public class CLogin {
                
                switch(tipoUsuario){
                    case "Vendedor":
-                       InterfazOperadorEmbarque interfazEmbarque = new InterfazOperadorEmbarque();
-                       interfazEmbarque.setLocationRelativeTo(null);
-                       interfazEmbarque.setSize(540,480);
-                       interfazEmbarque.setVisible(true);
+                       InterfazVentas interfazVentas = new InterfazVentas();
+                       interfazVentas.setLocationRelativeTo(null);
+                       interfazVentas.setSize(540,480);
+                       interfazVentas.setVisible(true);
                        break;
+
                    case "Despachador":
                        InterfazDespachador interfazAlmacenamiento = new InterfazDespachador();
                        interfazAlmacenamiento.setLocationRelativeTo(null);

@@ -10,14 +10,14 @@ import javax.swing.JPanel;
  *
  * @author villa
  */
-public class InterfazOperadorEmbarque extends javax.swing.JFrame {
+public class InterfazVentas extends javax.swing.JFrame {
      
 
     
     /**
      * Creates new form InterfazOperadorEmbarque
      */
-    public InterfazOperadorEmbarque() {
+    public InterfazVentas() {
         initComponents();
               
         
@@ -48,7 +48,7 @@ public class InterfazOperadorEmbarque extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        OperadorEmbarque.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OPERADOR DE EMBARQUE / DESEMBARQUE", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18))); // NOI18N
+        OperadorEmbarque.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OPERADOR VENTAS", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18))); // NOI18N
 
         javax.swing.GroupLayout OperadorEmbarqueLayout = new javax.swing.GroupLayout(OperadorEmbarque);
         OperadorEmbarque.setLayout(OperadorEmbarqueLayout);
@@ -116,20 +116,21 @@ public class InterfazOperadorEmbarque extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InterfazOperadorEmbarque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazVentas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InterfazOperadorEmbarque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazVentas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InterfazOperadorEmbarque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazVentas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InterfazOperadorEmbarque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazVentas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InterfazOperadorEmbarque().setVisible(true);
+                new InterfazVentas().setVisible(true);
             }
         });
     }
