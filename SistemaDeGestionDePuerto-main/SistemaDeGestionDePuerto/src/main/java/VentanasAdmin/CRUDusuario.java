@@ -88,6 +88,11 @@ public class CRUDusuario extends javax.swing.JFrame {
         txtapellido.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "APELLIDO", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
 
         txtcontrasenia.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CONTRASEÑA", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
+        txtcontrasenia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcontraseniaActionPerformed(evt);
+            }
+        });
 
         combotipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccionar-", "Admin", "Vendedor", "Despachador" }));
         combotipo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "TIPO DE USUARIO", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
@@ -338,6 +343,10 @@ public class CRUDusuario extends javax.swing.JFrame {
     private void combotipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combotipoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_combotipoActionPerformed
+
+    private void txtcontraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcontraseniaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcontraseniaActionPerformed
 
     /**
      * @param args the command line arguments
