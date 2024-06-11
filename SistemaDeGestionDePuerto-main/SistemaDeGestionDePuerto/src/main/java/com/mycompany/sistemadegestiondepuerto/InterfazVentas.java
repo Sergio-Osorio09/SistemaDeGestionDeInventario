@@ -4,33 +4,41 @@
  */
 package com.mycompany.sistemadegestiondepuerto;
 
-import javax.swing.JPanel;
+import Clases.CConexion;
+import com.mycompany.sistemadegestiondepuerto.InterfazAdministradorSistema;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author villa
  */
 public class InterfazVentas extends javax.swing.JFrame {
-     
+    CConexion con=new CConexion();
+    Connection CConexion=con.estableceConexion();
 
     
     /**
      * Creates new form InterfazOperadorEmbarque
      */
     public InterfazVentas() {
-        initComponents();
-              
-        
+        initComponents();        
+        mostrardatos();                     
     }
     
-    private void cambiarVista(JPanel jpanel){
+    /*private void cambiarVista(JPanel jpanel){
         
     }
     
     private void activarVista(JPanel jpanel){
                
         
-    }
+    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,25 +49,180 @@ public class InterfazVentas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        OperadorEmbarque = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        txtid = new javax.swing.JTextField();
+        combotipo = new javax.swing.JComboBox<>();
+        btnregistrar = new javax.swing.JButton();
+        btnactualizar = new javax.swing.JButton();
+        btnregistrar1 = new javax.swing.JButton();
+        Panel_Cuadro_inventario = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtabledatos = new javax.swing.JTable();
         MenuInicio = new javax.swing.JMenuBar();
         Inicio = new javax.swing.JMenu();
         CerrarSesion = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setSize(new java.awt.Dimension(1000, 600));
 
-        OperadorEmbarque.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OPERADOR VENTAS", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18))); // NOI18N
+        jPanel12.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CATÁLOGO DE PRODUCTOS", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel12.setPreferredSize(new java.awt.Dimension(1000, 600));
 
-        javax.swing.GroupLayout OperadorEmbarqueLayout = new javax.swing.GroupLayout(OperadorEmbarque);
-        OperadorEmbarque.setLayout(OperadorEmbarqueLayout);
-        OperadorEmbarqueLayout.setHorizontalGroup(
-            OperadorEmbarqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 574, Short.MAX_VALUE)
+        jPanel10.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "BUSQUEDA POR:", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+
+        txtid.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
+        txtid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtidActionPerformed(evt);
+            }
+        });
+
+        combotipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccionar-", "ID", "NOMBRE", "MARCA" }));
+        combotipo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "TIPO DE USUARIO", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
+        combotipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combotipoActionPerformed(evt);
+            }
+        });
+
+        btnregistrar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnregistrar.setText("BUSCAR");
+        btnregistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnregistrarActionPerformed(evt);
+            }
+        });
+
+        btnactualizar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnactualizar.setText("ACTUALIZAR");
+        btnactualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnactualizarActionPerformed(evt);
+            }
+        });
+
+        btnregistrar1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnregistrar1.setText("LIMPIAR");
+        btnregistrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnregistrar1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtid, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(combotipo, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                        .addGap(0, 98, Short.MAX_VALUE)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnregistrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnactualizar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnregistrar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
-        OperadorEmbarqueLayout.setVerticalGroup(
-            OperadorEmbarqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 520, Short.MAX_VALUE)
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(combotipo, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnregistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnregistrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnactualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
+
+        txtid.getAccessibleContext().setAccessibleName("Producto ID:");
+
+        Panel_Cuadro_inventario.setBackground(new java.awt.Color(102, 102, 102));
+        Panel_Cuadro_inventario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "INVENTARIO", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        Panel_Cuadro_inventario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_Cuadro_inventarioMouseClicked(evt);
+            }
+        });
+
+        jtabledatos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jtabledatos.setEnabled(false);
+        jtabledatos.setFocusable(false);
+        jtabledatos.setRowSelectionAllowed(false);
+        jtabledatos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtabledatosMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jtabledatos);
+
+        javax.swing.GroupLayout Panel_Cuadro_inventarioLayout = new javax.swing.GroupLayout(Panel_Cuadro_inventario);
+        Panel_Cuadro_inventario.setLayout(Panel_Cuadro_inventarioLayout);
+        Panel_Cuadro_inventarioLayout.setHorizontalGroup(
+            Panel_Cuadro_inventarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel_Cuadro_inventarioLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+        Panel_Cuadro_inventarioLayout.setVerticalGroup(
+            Panel_Cuadro_inventarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel_Cuadro_inventarioLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Panel_Cuadro_inventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Panel_Cuadro_inventario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+
+        Panel_Cuadro_inventario.getAccessibleContext().setAccessibleDescription("");
 
         Inicio.setText("Inicio");
 
@@ -79,14 +242,12 @@ public class InterfazVentas extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(OperadorEmbarque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(OperadorEmbarque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE)
         );
-
-        OperadorEmbarque.getAccessibleContext().setAccessibleName("Interfaz Vendedor");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -98,6 +259,88 @@ public class InterfazVentas extends javax.swing.JFrame {
         login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_CerrarSesionActionPerformed
+
+    private void Panel_Cuadro_inventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Cuadro_inventarioMouseClicked
+        btnactualizar.setEnabled(false);
+        btnregistrar.setEnabled(true);
+        limpiarentradas();
+    }//GEN-LAST:event_Panel_Cuadro_inventarioMouseClicked
+
+    private void jtabledatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtabledatosMouseClicked
+       /* btnregistrar.setEnabled(false);
+        btnactualizar.setEnabled(true);
+        int fila=this.jtabledatos.getSelectedRow();
+        this.combotipo.setSelectedItem(this.jtabledatos.getValueAt(fila, 0).toString());
+        this.txtid.setText(this.jtabledatos.getValueAt(fila, 1).toString());
+        this.txtDNI.setText(this.jtabledatos.getValueAt(fila, 2).toString());
+        this.txtnombre.setText(this.jtabledatos.getValueAt(fila, 3).toString());
+        this.txtapellido.setText(this.jtabledatos.getValueAt(fila, 4).toString());
+        this.txtcontrasenia.setText(this.jtabledatos.getValueAt(fila, 5).toString());*/
+    }//GEN-LAST:event_jtabledatosMouseClicked
+
+    private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
+        mostrardatos();
+    }//GEN-LAST:event_btnactualizarActionPerformed
+
+    private void btnregistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarActionPerformed
+        
+        DefaultTableModel modelo=new DefaultTableModel();
+        //modelo.addColumn("Inventario_id");
+        modelo.addColumn("Producot_id");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Marca");
+        modelo.addColumn("Cajas");
+        modelo.addColumn("Unidades");        
+        //modelo.addColumn("Descripcion");
+        jtabledatos.setModel(modelo);
+        int codigo_buscar;
+        String consultasql="", nombre_buscar="", marca_buscar="";
+        
+        if(combotipo.getSelectedItem().toString()=="ID"){
+            codigo_buscar = Integer.parseInt(txtid.getText());
+            consultasql="SELECT i.producto_Producto_id, p.Nombre AS Nombre_Producto, p.Marca, i.Cantidad_Caja, i.Cantidad_Unidad FROM inventario i JOIN producto p ON i.producto_Producto_id = p.Producto_id WHERE  p.Producto_id = "+ codigo_buscar+";";
+        }
+        if (combotipo.getSelectedItem().toString()=="NOMBRE") {
+            nombre_buscar = txtid.getText();
+            consultasql = "SELECT i.producto_Producto_id, p.Nombre AS Nombre_Producto, p.Marca, i.Cantidad_Caja, i.Cantidad_Unidad FROM inventario i JOIN producto p ON i.producto_Producto_id = p.Producto_id WHERE  p.Nombre = '"+ nombre_buscar+"';"; 
+        }
+        if(combotipo.getSelectedItem().toString()=="MARCA"){
+            marca_buscar = txtid.getText();
+            consultasql="SELECT i.producto_Producto_id, p.Nombre AS Nombre_Producto, p.Marca, i.Cantidad_Caja, i.Cantidad_Unidad FROM inventario i JOIN producto p ON i.producto_Producto_id = p.Producto_id WHERE p.Marca = '"+ marca_buscar+"';";
+        }
+        String data[]=new String[5];
+        Statement st;
+        try{
+            st=CConexion.createStatement();
+            ResultSet rs=st.executeQuery(consultasql);
+            while(rs.next()){
+                data[0]=rs.getString(1);
+                data[1]=rs.getString(2);
+                data[2]=rs.getString(3);
+                data[3]=rs.getString(4);
+                data[4]=rs.getString(5);
+                //data[5]=rs.getString(6);
+                //data[6]=rs.getString(7);
+                modelo.addRow(data);
+            }
+        } catch(SQLException e){
+            System.out.println("Error al mostrar Datos "+ e);
+        }
+        
+    }//GEN-LAST:event_btnregistrarActionPerformed
+
+    private void combotipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combotipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combotipoActionPerformed
+
+    private void txtidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtidActionPerformed
+
+    private void btnregistrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrar1ActionPerformed
+        // TODO add your handling code here:
+        limpiarentradas() ;
+    }//GEN-LAST:event_btnregistrar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -134,11 +377,60 @@ public class InterfazVentas extends javax.swing.JFrame {
             }
         });
     }
+    
+    private void mostrardatos() {
+        DefaultTableModel modelo=new DefaultTableModel();
+        //modelo.addColumn("Inventario_id");
+        modelo.addColumn("ID");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Marca");
+        modelo.addColumn("Cajas");
+        modelo.addColumn("Unidades");        
+        //modelo.addColumn("Descripcion");
+        
+        jtabledatos.setModel(modelo);
+        //String consultasql="select * FROM inventario";
+        String consultasql="SELECT      i.producto_Producto_id, p.Nombre AS Nombre_Producto, p.Marca, i.Cantidad_Caja, i.Cantidad_Unidad FROM inventario i JOIN producto p ON i.producto_Producto_id = p.Producto_id;";
+        
+        String data[]=new String[5];
+        
+        Statement st;
+        try{
+            st=CConexion.createStatement();
+            ResultSet rs=st.executeQuery(consultasql);
+            while(rs.next()){
+                data[0]=rs.getString(1);
+                data[1]=rs.getString(2);
+                data[2]=rs.getString(3);
+                data[3]=rs.getString(4);
+                data[4]=rs.getString(5);
+                //data[5]=rs.getString(6);
+                //data[6]=rs.getString(7);
+                modelo.addRow(data);
+            }
+        } catch(SQLException e){
+            System.out.println("Error al mostrar Datos "+ e);
+        }
+    }
+
+    private void limpiarentradas() {
+        combotipo.setSelectedIndex(0);
+        txtid.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem CerrarSesion;
     private javax.swing.JMenu Inicio;
     private javax.swing.JMenuBar MenuInicio;
-    private javax.swing.JPanel OperadorEmbarque;
+    private javax.swing.JPanel Panel_Cuadro_inventario;
+    private javax.swing.JButton btnactualizar;
+    private javax.swing.JButton btnregistrar;
+    private javax.swing.JButton btnregistrar1;
+    private javax.swing.JComboBox<String> combotipo;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jtabledatos;
+    private javax.swing.JTextField txtid;
     // End of variables declaration//GEN-END:variables
 }

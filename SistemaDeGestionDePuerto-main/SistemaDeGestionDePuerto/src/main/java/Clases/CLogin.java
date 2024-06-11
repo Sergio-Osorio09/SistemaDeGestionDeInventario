@@ -21,7 +21,7 @@ public class CLogin {
            
            Clases.CConexion objetoConexion = new Clases.CConexion();
            
-           String consulta = "select*from usuario where usuario.idUsuario = (?) and usuario.Contraseña = (?);";
+           String consulta = "select*from usuario where usuario.DNI = (?) and usuario.Contraseña = (?);";
            ps = objetoConexion.estableceConexion().prepareStatement(consulta);
            
            String contra = String.valueOf(contraseña.getPassword());
@@ -36,20 +36,20 @@ public class CLogin {
                JOptionPane.showMessageDialog(null, "USUARIO CONFIRMADO");
                
                switch(tipoUsuario){
-                   case "Vendedor":
+                   case "Vendedor": //Vendedor
                        InterfazVentas interfazVentas = new InterfazVentas();
                        interfazVentas.setLocationRelativeTo(null);
-                       interfazVentas.setSize(540,480);
+                       interfazVentas.setSize(1000,600);
                        interfazVentas.setVisible(true);
                        break;
 
-                   case "Despachador":
+                   case "Despachador"://Despachador
                        InterfazDespachador interfazAlmacenamiento = new InterfazDespachador();
                        interfazAlmacenamiento.setLocationRelativeTo(null);
                        interfazAlmacenamiento.setSize(890,490);
                        interfazAlmacenamiento.setVisible(true);
                        break;
-                   case "Admin":
+                   case "Admin"://Admin
                        InterfazAdministradorSistema interfazAdmin = new InterfazAdministradorSistema();
                        interfazAdmin.setLocationRelativeTo(null);
                        interfazAdmin.setSize(1000,600);

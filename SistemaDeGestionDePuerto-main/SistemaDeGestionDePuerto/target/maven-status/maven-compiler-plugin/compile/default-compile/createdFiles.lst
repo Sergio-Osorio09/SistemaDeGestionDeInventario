@@ -1,11 +1,16 @@
+com\mycompany\sistemadegestiondepuerto\InterfazVentas$10.class
 Clases\CLogin.class
 com\mycompany\sistemadegestiondepuerto\InterfazDespachador.class
+com\mycompany\sistemadegestiondepuerto\InterfazVentas$6.class
 VentanasAdmin\CRUDusuario$7.class
+com\mycompany\sistemadegestiondepuerto\InterfazVentas$4.class
 com\mycompany\sistemadegestiondepuerto\InterfazLogin$5.class
 com\mycompany\sistemadegestiondepuerto\InterfazAdministradorSistema$1.class
+com\mycompany\sistemadegestiondepuerto\InterfazVentas$9.class
 com\mycompany\sistemadegestiondepuerto\InterfazVentas$1.class
 VentanasAdmin\CRUDusuario$2.class
 com\mycompany\sistemadegestiondepuerto\InterfazAdministradorSistema.class
+com\mycompany\sistemadegestiondepuerto\InterfazVentas$8.class
 com\mycompany\sistemadegestiondepuerto\InterfazAdministradorSistema$3.class
 VentanasAlmacenamiento\Almacenamiento.class
 com\mycompany\sistemadegestiondepuerto\InterfazLogin$3.class
@@ -13,7 +18,9 @@ Clases\CConexion.class
 VentanasAdmin\CRUDusuario$9.class
 com\mycompany\sistemadegestiondepuerto\InterfazLogin$6.class
 VentanasVentas\VisualStock.class
+com\mycompany\sistemadegestiondepuerto\InterfazVentas$3.class
 VentanasAdmin\CRUDusuario$4.class
+com\mycompany\sistemadegestiondepuerto\InterfazVentas$5.class
 VentanasAdmin\CRUDusuario.class
 com\mycompany\sistemadegestiondepuerto\InterfazLogin.class
 VentanasAdmin\CRUDusuario$1.class
@@ -32,4 +39,5 @@ VentanasAdmin\CRUDusuario$5.class
 com\mycompany\sistemadegestiondepuerto\InterfazAdministradorSistema$4.class
 com\mycompany\sistemadegestiondepuerto\InterfazLogin$2.class
 VentanasAdmin\CRUDusuario$3.class
+com\mycompany\sistemadegestiondepuerto\InterfazVentas$7.class
 com\mycompany\sistemadegestiondepuerto\InterfazDespachador$1.class

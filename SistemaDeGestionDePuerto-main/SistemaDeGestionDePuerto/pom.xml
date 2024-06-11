@@ -5,23 +5,25 @@
     <artifactId>SistemaDeGestionDePuerto</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+
     <dependencies>
-    	<dependency>
+        <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
             <version>8.3.0</version>
         </dependency>
-	<dependency>
+        <dependency>
             <groupId>com.google.protobuf</groupId>
             <artifactId>protobuf-java</artifactId>
-            <version>3.25.1</version>
-        </dependency>
+            <version>3.21.1</version> </dependency> 
     </dependencies>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>  <!-- Cambia a la versión de Java que tengas instalada -->
+        <maven.compiler.target>11</maven.compiler.target>  <!-- Cambia a la versión de Java que tengas instalada -->
         <exec.mainClass>com.mycompany.sistemadegestiondepuerto.SistemaDeGestionDePuerto</exec.mainClass>
     </properties>
+
     <name>SistemaDeGestionDeInventario</name>
 </project>
