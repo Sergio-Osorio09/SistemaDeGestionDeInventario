@@ -4,6 +4,8 @@
  */
 package com.mycompany.sistemadegestiondepuerto;
 
+import VentanasAlmacenamiento.Almacenamiento;
+
 
 public class InterfazDespachador extends javax.swing.JFrame {
 
@@ -24,6 +26,8 @@ public class InterfazDespachador extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        btton_ingreso_producto = new javax.swing.JButton();
+        btton_despacho_producto = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         Inicio = new javax.swing.JMenu();
         CerrarSesion = new javax.swing.JMenuItem();
@@ -32,15 +36,41 @@ public class InterfazDespachador extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OPERADOR DE ALMACENAMIENTO", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 18))); // NOI18N
 
+        btton_ingreso_producto.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btton_ingreso_producto.setText("Ingreso de producto");
+        btton_ingreso_producto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btton_ingreso_productoActionPerformed(evt);
+            }
+        });
+
+        btton_despacho_producto.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btton_despacho_producto.setText("Despacho de producto");
+        btton_despacho_producto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btton_despacho_productoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 850, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btton_despacho_producto, javax.swing.GroupLayout.PREFERRED_SIZE, 195, Short.MAX_VALUE)
+                    .addComponent(btton_ingreso_producto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(611, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 405, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(btton_ingreso_producto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addComponent(btton_despacho_producto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(233, Short.MAX_VALUE))
         );
 
         Inicio.setText("Inicio");
@@ -79,6 +109,18 @@ public class InterfazDespachador extends javax.swing.JFrame {
        this.dispose();
     }//GEN-LAST:event_CerrarSesionActionPerformed
 
+    private void btton_ingreso_productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btton_ingreso_productoActionPerformed
+        Almacenamiento a = new Almacenamiento();
+        a.setLocationRelativeTo(null);
+        a.setSize(1282,672);
+        a.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btton_ingreso_productoActionPerformed
+
+    private void btton_despacho_productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btton_despacho_productoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btton_despacho_productoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -106,6 +148,8 @@ public class InterfazDespachador extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -118,6 +162,8 @@ public class InterfazDespachador extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem CerrarSesion;
     private javax.swing.JMenu Inicio;
+    private javax.swing.JButton btton_despacho_producto;
+    private javax.swing.JButton btton_ingreso_producto;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
