@@ -4,7 +4,7 @@ package Clases;
 import com.mycompany.sistemadegestiondepuerto.InterfazAdministradorSistema;
 import com.mycompany.sistemadegestiondepuerto.InterfazLogin;
 import com.mycompany.sistemadegestiondepuerto.InterfazDespachador;
-import com.mycompany.sistemadegestiondepuerto.InterfazVentas;
+import VentanasVentas.InterfazVentas;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
