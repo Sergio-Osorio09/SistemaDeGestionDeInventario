@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+
 public class CLogin {
     
     public void validaUsuario(JTextField usuario, JPasswordField contraseña){
@@ -18,7 +19,6 @@ public class CLogin {
         try{
            ResultSet rs = null;
            PreparedStatement ps = null;
-           
            Clases.CConexion objetoConexion = new Clases.CConexion();
            
            String consulta = "select*from usuario where usuario.DNI = (?) and usuario.Contraseña = (?);";

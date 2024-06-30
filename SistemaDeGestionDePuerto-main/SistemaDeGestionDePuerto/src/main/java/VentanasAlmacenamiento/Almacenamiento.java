@@ -6,6 +6,7 @@ package VentanasAlmacenamiento;
 
 import Clases.CConexion;
 import com.mycompany.sistemadegestiondepuerto.InterfazDespachador;
+import static com.mycompany.sistemadegestiondepuerto.InterfazLogin.usuarioObtenido;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -242,7 +243,9 @@ public class Almacenamiento extends javax.swing.JFrame {
     }//GEN-LAST:event_txtdescripcionActionPerformed
 
     private void btnregistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarActionPerformed
-        try{
+      
+        
+    try{
             PreparedStatement ps=CConexion.prepareStatement("INSERT INTO producto(Producto_id,Nombre,Marca,Descripcion,Cantidad_x_caja,Peso) VALUES(?,?,?,?,?,?)");
             ps.setString(1, txtid.getText());
             ps.setString(2, txtnombre.getText());
@@ -280,6 +283,7 @@ public class Almacenamiento extends javax.swing.JFrame {
 
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
         InterfazDespachador salir = new InterfazDespachador();
+        salir.setLocationRelativeTo(null);
         salir.setVisible(true);
         this.dispose();
         

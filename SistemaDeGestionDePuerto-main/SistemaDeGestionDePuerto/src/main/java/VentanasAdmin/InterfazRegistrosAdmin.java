@@ -10,11 +10,13 @@ import com.mycompany.sistemadegestiondepuerto.InterfazAdministradorSistema;
 import com.mycompany.sistemadegestiondepuerto.InterfazLogin;
 import com.mycompany.sistemadegestiondepuerto.InterfazLogin;
 import com.mycompany.sistemadegestiondepuerto.InterfazLogin;
+import static com.mycompany.sistemadegestiondepuerto.InterfazLogin.usuarioObtenido;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -66,14 +68,21 @@ public class InterfazRegistrosAdmin extends javax.swing.JFrame {
         txtIdProducto = new javax.swing.JTextField();
         btnRegistrar = new javax.swing.JButton();
         txtCantCajas = new javax.swing.JTextField();
-        txtCantUnid = new javax.swing.JTextField();
+        txtObserv = new javax.swing.JTextField();
         txtIdInventario = new javax.swing.JTextField();
+        txtCantUnid = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txtFechaFinMes = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txtFechaFinDia = new javax.swing.JTextField();
+        txtFechaFinAño = new javax.swing.JTextField();
         Panel_Cuadro_inventario = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtabledatos = new javax.swing.JTable();
         MenuInicio = new javax.swing.JMenuBar();
         Inicio = new javax.swing.JMenu();
         CerrarSesion = new javax.swing.JMenuItem();
+        AtrasAdmin = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(1000, 600));
@@ -83,7 +92,7 @@ public class InterfazRegistrosAdmin extends javax.swing.JFrame {
         jPanel12.setPreferredSize(new java.awt.Dimension(1000, 600));
 
         jPanel10.setBackground(new java.awt.Color(0, 102, 102));
-        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "BUSQUEDA POR:", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
 
         txtTipo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
         txtTipo.addActionListener(new java.awt.event.ActionListener() {
@@ -134,7 +143,7 @@ public class InterfazRegistrosAdmin extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Tipo de Registro:");
 
@@ -160,10 +169,10 @@ public class InterfazRegistrosAdmin extends javax.swing.JFrame {
             }
         });
 
-        txtCantUnid.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cantidad de unidades", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
-        txtCantUnid.addActionListener(new java.awt.event.ActionListener() {
+        txtObserv.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Observaciones", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
+        txtObserv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCantUnidActionPerformed(evt);
+                txtObservActionPerformed(evt);
             }
         });
 
@@ -174,6 +183,43 @@ public class InterfazRegistrosAdmin extends javax.swing.JFrame {
             }
         });
 
+        txtCantUnid.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cantidad de unidades", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
+        txtCantUnid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCantUnidActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Buscar datos del producto:");
+
+        txtFechaFinMes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "MES", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
+        txtFechaFinMes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFechaFinMesActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Fecha de vencimiento:");
+
+        txtFechaFinDia.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DIA", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
+        txtFechaFinDia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFechaFinDiaActionPerformed(evt);
+            }
+        });
+
+        txtFechaFinAño.setToolTipText("");
+        txtFechaFinAño.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "AÑO", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
+        txtFechaFinAño.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFechaFinAñoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
@@ -181,56 +227,84 @@ public class InterfazRegistrosAdmin extends javax.swing.JFrame {
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(144, 144, 144))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                        .addGap(0, 6, Short.MAX_VALUE)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtIdProducto)
-                            .addComponent(txtTipo, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(combotipo, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                                .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnactualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel3)
+                            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(jPanel10Layout.createSequentialGroup()
+                                    .addComponent(txtFechaFinDia, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtFechaFinMes, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtFechaFinAño))
+                                .addComponent(txtObserv, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                                    .addComponent(btnRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtTipo)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                                    .addComponent(btnactualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(combotipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1)
                             .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(comboTipRegistro, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtCantCajas)
-                            .addComponent(txtCantUnid)
-                            .addComponent(txtIdInventario, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addContainerGap())))
+                                .addComponent(txtIdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtIdInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addComponent(txtCantCajas, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtCantUnid, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(comboTipRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(14, 14, 14)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(combotipo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(12, 12, 12)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnactualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(comboTipRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtIdInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtIdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtCantCajas, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtCantUnid, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnactualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19))
+                    .addComponent(txtIdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIdInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCantCajas, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCantUnid, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtFechaFinMes, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFechaFinDia, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFechaFinAño, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(txtObserv, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         txtTipo.getAccessibleContext().setAccessibleName("Producto ID:");
@@ -280,14 +354,14 @@ public class InterfazRegistrosAdmin extends javax.swing.JFrame {
             .addGroup(Panel_Cuadro_inventarioLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         Panel_Cuadro_inventarioLayout.setVerticalGroup(
             Panel_Cuadro_inventarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel_Cuadro_inventarioLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
@@ -299,7 +373,7 @@ public class InterfazRegistrosAdmin extends javax.swing.JFrame {
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(Panel_Cuadro_inventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -308,9 +382,10 @@ public class InterfazRegistrosAdmin extends javax.swing.JFrame {
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Panel_Cuadro_inventario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
+        jPanel10.getAccessibleContext().setAccessibleName("");
         Panel_Cuadro_inventario.getAccessibleContext().setAccessibleDescription("");
 
         Inicio.setText("Inicio");
@@ -323,7 +398,16 @@ public class InterfazRegistrosAdmin extends javax.swing.JFrame {
         });
         Inicio.add(CerrarSesion);
 
+        AtrasAdmin.setText("Regresar");
+        AtrasAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AtrasAdminActionPerformed(evt);
+            }
+        });
+        Inicio.add(AtrasAdmin);
+
         MenuInicio.add(Inicio);
+        Inicio.getAccessibleContext().setAccessibleDescription("");
 
         setJMenuBar(MenuInicio);
 
@@ -331,13 +415,13 @@ public class InterfazRegistrosAdmin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, 1090, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 1136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, 655, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 672, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -443,37 +527,33 @@ public class InterfazRegistrosAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtIdProductoActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        /* int idProducto,cantidadCaja=0, CantidadUnid=0 , idInvetario;
-        String estado, fechaRegistro, User, Observaciones, fechvenci, tipoUser, idUser;
-        String nombre_buscar="", marca_buscar="";
-        
-        
-        
-        idProducto= Integer.parseInt(txtIdProducto.getText());
-        estado = comboTipRegistro.getSelectedItem().toString();
-        cantidadCaja=Integer.parseInt(txtCantCajas.getText());
-        CantidadUnid=Integer.parseInt(txtCantUnid.getText());
-        idInvetario = Integer.parseInt(txtIdProducto.getText());
-        
-       consultasql="INSERT INTO `sistemadegestiondeinventario`.`registro` (`Registro_id`, `Producto_id`, `Estado`, "
-                    + "`Cantidad_caja`, `Cantidad_unidad`, `fecha_de_registro`, `Usuario_registro`, `Observaciones`, "
-                    + "`fecha_de_vencimiento`, `usuario_TipoDeUsuario`, `producto_Producto_id`, `usuario_idUsuario`, "
-                    + "`inventario_inventario_id`, `inventario_producto_Producto_id`) VALUES "
-                    + "('10', '"+idProducto+"','" + estado+"', '"+cantidadCaja+"', '"+CantidadUnid+"', '2024-06-24', "
-                    + "'111', 'nada2', '2024-10-24', 'Admin', '"+idProducto+"', '111', '"+idInvetario+"', '"+idProducto+"')";*/
-        
-      /* consultasql= "INSERT INTO `sistemadegestiondeinventario`.`registro` (`Registro_id`, `Producto_id`, `Estado`, `Cantidad_caja`, `Cantidad_unidad`, `fecha_de_registro`, `Usuario_registro`, `Observaciones`, `fecha_de_vencimiento`, `usuario_TipoDeUsuario`, `producto_Producto_id`, `usuario_idUsuario`, `inventario_inventario_id`, `inventario_producto_Producto_id`) VALUES ('12', '1', 'Salida', '5', '5', '2024-06-24', '111', 'nada2', '2024-10-24', 'Admin', '1', '111', '1', '1');";
-       
-       
-       PreparedStatement st;
-       
-        try{
-            st=CConexion.prepareStatement(consultasql);
-            st.executeUpdate();
-        } catch(SQLException e){
-            System.out.println("Error al guardar Datos "+ e);
+      LocalDate hoy = LocalDate.now();
+      String fechaHoy=""+hoy;
+      String usuarioIdentidad, Fdia="", Fmes="",Faño="", vencimientoFecha;
+      usuarioIdentidad=usuarioObtenido;
+      int usuarioId=0, canticajas=0, cantidadUnidades=0;
+     
+      Fdia=txtFechaFinDia.getText();
+      Fmes=txtFechaFinMes.getText();
+      Faño=txtFechaFinAño.getText();
+      vencimientoFecha=Faño+"-"+Fmes+"-"+Fdia;
+      
+      try (  PreparedStatement sentencia = CConexion.prepareStatement("SELECT idUsuario FROM usuario WHERE dni = ?");) {
+
+            sentencia.setInt(1, Integer.parseInt(usuarioIdentidad)); // Parámetro de la consulta
+
+            try (ResultSet rs = sentencia.executeQuery()) {
+                if (rs.next()) {
+                    usuarioId = rs.getInt("idUsuario");
+                } 
+            } catch (SQLException e) {
+                System.out.println("Error al obtener el idUsuario: " + e.getMessage());
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al conectar a la base de datos: " + e.getMessage());
         }
-    */   
+      
+      
       String consultasql = "INSERT INTO `sistemadegestiondeinventario`.`registro` ( `Producto_id`, `Estado`, `Cantidad_caja`, `Cantidad_unidad`, `fecha_de_registro`, `Usuario_registro`, `Observaciones`, `fecha_de_vencimiento`, `usuario_TipoDeUsuario`, `producto_Producto_id`, `usuario_idUsuario`, `inventario_inventario_id`, `inventario_producto_Producto_id`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     try (PreparedStatement st = CConexion.prepareStatement(consultasql)) {
@@ -482,20 +562,88 @@ public class InterfazRegistrosAdmin extends javax.swing.JFrame {
         st.setString(2, comboTipRegistro.getSelectedItem().toString());
         st.setInt(3, Integer.parseInt(txtCantCajas.getText()));
         st.setInt(4, Integer.parseInt(txtCantUnid.getText()));
-        st.setDate(5, java.sql.Date.valueOf("2024-06-24"));
-        st.setInt(6, 111);
-        st.setString(7, "nada2");
-        st.setDate(8, java.sql.Date.valueOf("2024-10-24"));
+        st.setDate(5, java.sql.Date.valueOf(fechaHoy));
+        st.setInt(6, Integer.parseInt(usuarioIdentidad));
+        st.setString(7, txtObserv.getText());
+        st.setDate(8, java.sql.Date.valueOf(vencimientoFecha));
         st.setString(9, "Admin");
         st.setInt(10,Integer.parseInt(txtIdProducto.getText()));
-        st.setInt(11, 111);
+        st.setInt(11, usuarioId);
         st.setInt(12, Integer.parseInt(txtIdInventario.getText()));
         st.setInt(13,Integer.parseInt(txtIdProducto.getText()));
 
         st.executeUpdate();
-        JOptionPane.showMessageDialog(null, "Datos Guardados Correctamente");
+        JOptionPane.showMessageDialog(null, "Datos Guardados Correctamente: " );
+        
+        
+        
+
+         do{
+             
+             try (PreparedStatement sentencia = CConexion.prepareStatement("SELECT Cantidad_Unidad FROM inventario WHERE inventario_id = ?");) {
+
+                sentencia.setInt(1, Integer.parseInt(txtIdInventario.getText()));
+
+                try (ResultSet rs = sentencia.executeQuery()) {
+                    if (rs.next()) {
+                        cantidadUnidades = rs.getInt("Cantidad_Unidad");
+                        } else {
+                                JOptionPane.showMessageDialog(null, "No se encontró el inventario con ese ID.");
+                        }
+                } catch (SQLException e) {
+                            JOptionPane.showMessageDialog(null, "Error al obtener la cantidad de unidades.");
+                }
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "Error al conectar a la base de datos.");
+            }
+             
+            if(cantidadUnidades<=0){
+                try (PreparedStatement sentencia = CConexion.prepareStatement("SELECT Cantidad_x_caja FROM producto WHERE Producto_id = ?");) {
+
+                   sentencia.setInt(1, Integer.parseInt(txtIdProducto.getText()));
+
+                   try (ResultSet rs = sentencia.executeQuery()) {
+                       if (rs.next()) {
+                           canticajas = rs.getInt("Cantidad_x_caja");
+                           } else {
+                                   JOptionPane.showMessageDialog(null, "No se encontró el producto con ese ID.");
+                           }
+                   } catch (SQLException e) {
+                               JOptionPane.showMessageDialog(null, "Error al obtener la cantidad por caja.");
+                   }
+               } catch (SQLException e) {
+                   JOptionPane.showMessageDialog(null, "Error al conectar a la base de datos.");
+               }
+
+
+               try {  
+                   PreparedStatement sentencia = CConexion.prepareStatement("UPDATE inventario SET Cantidad_Caja = Cantidad_Caja - 1,  Cantidad_Unidad = Cantidad_Unidad + "+canticajas+" WHERE inventario_id = "+txtIdInventario.getText()+" AND producto_Producto_id = "+txtIdProducto.getText()+";");
+
+                   sentencia.executeUpdate();
+
+               } catch (SQLException e) {
+                   System.out.println("Error al conectar a la base de datos: " + e.getMessage());
+               }
+             }
+            
+         }while(cantidadUnidades<0);
+
+            
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         mostrardatos();
     } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Error al guardar Datos: " + e.getMessage());
         System.err.println("Error al guardar Datos: " + e.getMessage());
     }
       
@@ -510,13 +658,37 @@ public class InterfazRegistrosAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCantCajasActionPerformed
 
-    private void txtCantUnidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantUnidActionPerformed
+    private void txtObservActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtObservActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCantUnidActionPerformed
+    }//GEN-LAST:event_txtObservActionPerformed
 
     private void txtIdInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdInventarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdInventarioActionPerformed
+
+    private void AtrasAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtrasAdminActionPerformed
+        InterfazAdministradorSistema AdminInterf = new InterfazAdministradorSistema();
+        AdminInterf.setLocationRelativeTo(null);
+        AdminInterf.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_AtrasAdminActionPerformed
+
+    private void txtCantUnidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantUnidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCantUnidActionPerformed
+
+    private void txtFechaFinMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaFinMesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFechaFinMesActionPerformed
+
+    private void txtFechaFinDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaFinDiaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFechaFinDiaActionPerformed
+
+    private void txtFechaFinAñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaFinAñoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFechaFinAñoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -537,8 +709,7 @@ public class InterfazRegistrosAdmin extends javax.swing.JFrame {
         modelo.addColumn("Marca");
         modelo.addColumn("Cajas");
         modelo.addColumn("Unidades");        
-        //modelo.addColumn("Descripcion");
-        
+        //modelo.addColumn("Descripcion");        
         jtabledatos.setModel(modelo);
         //String consultasql="select * FROM inventario";
         String consultasql="SELECT      i.inventario_id, i.producto_Producto_id, p.Nombre AS Nombre_Producto, p.Marca, i.Cantidad_Caja, i.Cantidad_Unidad FROM inventario i JOIN producto p ON i.producto_Producto_id = p.Producto_id;";
@@ -567,16 +738,23 @@ public class InterfazRegistrosAdmin extends javax.swing.JFrame {
     void limpiarentradas() {
         combotipo.setSelectedIndex(0);
         txtTipo.setText("");
-        txtIdProducto.setText("");
-        txtCantCajas.setText("0");
-        txtCantUnid.setText("0");
+        
         comboTipRegistro.setSelectedIndex(0);
+        txtIdProducto.setText("");
+        txtIdInventario.setText("");
+        txtCantCajas.setText("");
+        txtCantUnid.setText("");
+        txtFechaFinDia.setText("");
+        txtFechaFinMes.setText("");
+        txtFechaFinAño.setText("");
+        txtObserv.setText("-");
     }
     
     
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem AtrasAdmin;
     private javax.swing.JMenuItem CerrarSesion;
     private javax.swing.JMenu Inicio;
     private javax.swing.JMenuBar MenuInicio;
@@ -588,14 +766,20 @@ public class InterfazRegistrosAdmin extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboTipRegistro;
     private javax.swing.JComboBox<String> combotipo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jtabledatos;
     private javax.swing.JTextField txtCantCajas;
     private javax.swing.JTextField txtCantUnid;
+    private javax.swing.JTextField txtFechaFinAño;
+    private javax.swing.JTextField txtFechaFinDia;
+    private javax.swing.JTextField txtFechaFinMes;
     private javax.swing.JTextField txtIdInventario;
     private javax.swing.JTextField txtIdProducto;
+    private javax.swing.JTextField txtObserv;
     private javax.swing.JTextField txtTipo;
     // End of variables declaration//GEN-END:variables
 }

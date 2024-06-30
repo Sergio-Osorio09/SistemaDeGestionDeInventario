@@ -1,6 +1,9 @@
 package com.mycompany.sistemadegestiondepuerto;
 public class InterfazLogin extends javax.swing.JFrame {
 
+    
+    public static String usuarioObtenido;
+    
     public InterfazLogin() {
         initComponents();       
     }
@@ -158,10 +161,12 @@ public class InterfazLogin extends javax.swing.JFrame {
 
     private void BotonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonIngresarActionPerformed
         Clases.CLogin objetoLogin = new Clases.CLogin();
+        usuarioObtenido=TextoUsuario.getText();
+        
         objetoLogin.validaUsuario(TextoUsuario, TextoContraseña);
         this.dispose(); 
     }//GEN-LAST:event_BotonIngresarActionPerformed
-
+    
     private void BotonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_BotonSalirActionPerformed

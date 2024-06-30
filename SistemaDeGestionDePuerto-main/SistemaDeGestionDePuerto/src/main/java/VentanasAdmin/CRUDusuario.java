@@ -6,6 +6,7 @@ package VentanasAdmin;
 
 import Clases.CConexion;
 import com.mycompany.sistemadegestiondepuerto.InterfazAdministradorSistema;
+import com.mycompany.sistemadegestiondepuerto.InterfazLogin;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -60,6 +61,10 @@ public class CRUDusuario extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtabledatos = new javax.swing.JTable();
+        MenuInicio = new javax.swing.JMenuBar();
+        Inicio = new javax.swing.JMenu();
+        CerrarSesion = new javax.swing.JMenuItem();
+        AtrasAdmin = new javax.swing.JMenuItem();
 
         jPopupMenu1.setComponentPopupMenu(jPopupMenu1);
 
@@ -239,8 +244,30 @@ public class CRUDusuario extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(5, Short.MAX_VALUE))
         );
+
+        Inicio.setText("Inicio");
+
+        CerrarSesion.setText("Cerrar Sesión");
+        CerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CerrarSesionActionPerformed(evt);
+            }
+        });
+        Inicio.add(CerrarSesion);
+
+        AtrasAdmin.setText("Regresar");
+        AtrasAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AtrasAdminActionPerformed(evt);
+            }
+        });
+        Inicio.add(AtrasAdmin);
+
+        MenuInicio.add(Inicio);
+
+        setJMenuBar(MenuInicio);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -250,7 +277,7 @@ public class CRUDusuario extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 607, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -329,6 +356,7 @@ public class CRUDusuario extends javax.swing.JFrame {
 
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
         InterfazAdministradorSistema salir = new InterfazAdministradorSistema();
+        salir.setLocationRelativeTo(null);
         salir.setVisible(true);
         this.dispose();  
     }//GEN-LAST:event_btnsalirActionPerformed
@@ -340,6 +368,22 @@ public class CRUDusuario extends javax.swing.JFrame {
     private void txtcontraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcontraseniaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcontraseniaActionPerformed
+
+    private void CerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarSesionActionPerformed
+        InterfazLogin login = new InterfazLogin();
+        login.setLocationRelativeTo(null);
+        login.setSize(450,490);
+        login.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_CerrarSesionActionPerformed
+
+    private void AtrasAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtrasAdminActionPerformed
+        InterfazAdministradorSistema AdminInterf = new InterfazAdministradorSistema();
+        AdminInterf.setLocationRelativeTo(null);
+        AdminInterf.setVisible(true);
+        this.dispose();
+
+    }//GEN-LAST:event_AtrasAdminActionPerformed
 
     /**
      * @param args the command line arguments
@@ -378,6 +422,10 @@ public class CRUDusuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem AtrasAdmin;
+    private javax.swing.JMenuItem CerrarSesion;
+    private javax.swing.JMenu Inicio;
+    private javax.swing.JMenuBar MenuInicio;
     private javax.swing.JButton btnactualizar;
     private javax.swing.JButton btnregistrar;
     private javax.swing.JButton btnsalir;

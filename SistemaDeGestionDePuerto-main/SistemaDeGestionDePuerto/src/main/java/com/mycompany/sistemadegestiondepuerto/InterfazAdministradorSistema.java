@@ -4,6 +4,7 @@
  */
 package com.mycompany.sistemadegestiondepuerto;
 
+import VentanasAdmin.AlmacenamientoAdmin;
 import VentanasAdmin.CRUDusuario;
 import VentanasAdmin.InterfazRegistrosAdmin;
 import VentanasAlmacenamiento.Almacenamiento;
@@ -171,9 +172,9 @@ public class InterfazAdministradorSistema extends javax.swing.JFrame {
     }//GEN-LAST:event_btton_despacho_productoActionPerformed
 
     private void btton_ingreso_productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btton_ingreso_productoActionPerformed
-        Almacenamiento a = new Almacenamiento();
+        AlmacenamientoAdmin a = new AlmacenamientoAdmin();
         a.setLocationRelativeTo(null);
-        a.setSize(1282,672);
+        //a.setSize(1282,672);
         a.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btton_ingreso_productoActionPerformed
