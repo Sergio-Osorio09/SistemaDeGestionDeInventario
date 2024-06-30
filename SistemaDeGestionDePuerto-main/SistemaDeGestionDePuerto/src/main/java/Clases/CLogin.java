@@ -39,20 +39,20 @@ public class CLogin {
                    case "Vendedor": //Vendedor
                        InterfazVentas interfazVentas = new InterfazVentas();
                        interfazVentas.setLocationRelativeTo(null);
-                       interfazVentas.setSize(1000,600);
+                       interfazVentas.setSize(1030,630);
                        interfazVentas.setVisible(true);
                        break;
 
                    case "Despachador"://Despachador
                        InterfazDespachador interfazAlmacenamiento = new InterfazDespachador();
                        interfazAlmacenamiento.setLocationRelativeTo(null);
-                       interfazAlmacenamiento.setSize(890,490);
+                       interfazAlmacenamiento.setSize(400,300);
                        interfazAlmacenamiento.setVisible(true);
                        break;
                    case "Admin"://Admin
                        InterfazAdministradorSistema interfazAdmin = new InterfazAdministradorSistema();
                        interfazAdmin.setLocationRelativeTo(null);
-                       interfazAdmin.setSize(1000,600);
+                       interfazAdmin.setSize(440,330);
                        interfazAdmin.setVisible(true);
                        break;
                }
