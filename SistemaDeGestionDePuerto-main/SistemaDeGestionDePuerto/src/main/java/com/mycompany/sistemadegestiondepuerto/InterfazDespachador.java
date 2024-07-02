@@ -135,7 +135,7 @@ public class InterfazDespachador extends javax.swing.JFrame {
     }//GEN-LAST:event_CerrarSesionActionPerformed
 
     private void btton_ingreso_productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btton_ingreso_productoActionPerformed
-        AlmacenamientoAdmin a = new AlmacenamientoAdmin();
+        Almacenamiento a = new Almacenamiento();
         a.setLocationRelativeTo(null);
         //a.setSize(1282,672);
         a.setVisible(true);
