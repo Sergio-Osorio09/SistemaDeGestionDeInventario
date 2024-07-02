@@ -148,7 +148,7 @@ public class Almacenamiento extends javax.swing.JFrame {
         );
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 102));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "INVENTARIO", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PRODUCTOS", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel3MouseClicked(evt);
@@ -271,11 +271,48 @@ public class Almacenamiento extends javax.swing.JFrame {
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Datos Guardados Correctamente");
             mostrardatos();
-            limpiarentradas();
+           // limpiarentradas();
 
         } catch(SQLException e){
             System.out.println("Error al registrar producto"+ e);
         }
+    
+    int usuarioId=0;
+        
+        try (  PreparedStatement sentencia = CConexion.prepareStatement("SELECT idUsuario FROM usuario WHERE dni = ?");) {
+
+               sentencia.setInt(1, Integer.parseInt(usuarioObtenido)); // Parámetro de la consulta
+
+               try (ResultSet rs = sentencia.executeQuery()) {
+                   if (rs.next()) {
+                       usuarioId = rs.getInt("idUsuario");
+                   } 
+               } catch (SQLException e) {
+                   System.out.println("Error al obtener el idUsuario: " + e.getMessage());
+               }
+           } catch (SQLException e) {
+               System.out.println("Error al conectar a la base de datos: " + e.getMessage());
+           }
+        
+        int identifiProducto=0;
+        identifiProducto=Integer.parseInt(txtid.getText());
+        try{
+            PreparedStatement psInventario=CConexion.prepareStatement("INSERT INTO `sistemadegestiondeinventario`.`inventario` (`Cantidad_Caja`, `Cantidad_Unidad`, `producto_Producto_id`, `usuario_idUsuario`) VALUES (?, ?,?, ?);");
+            psInventario.setInt(1, 0);
+            psInventario.setInt(2, 0);
+            psInventario.setInt(3, identifiProducto);
+            psInventario.setInt(4, usuarioId);
+            //ps.setInt(4, 2);
+            psInventario.executeUpdate();
+        } catch(SQLException e){
+            System.out.println("Error al registrar producto en inventario"+ e);
+            JOptionPane.showMessageDialog(null, "idUser: "+usuarioId + "|| idProducot: " + identifiProducto);
+        }
+           
+        
+        limpiarentradas();  
+    
+    
     }//GEN-LAST:event_btnregistrarActionPerformed
 
     private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
