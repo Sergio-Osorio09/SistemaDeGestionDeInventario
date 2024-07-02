@@ -45,7 +45,7 @@ public class InterfazDespachador extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "GESTION", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
         btton_despacho_producto.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btton_despacho_producto.setText("Despacho de producto");
+        btton_despacho_producto.setText("Registros");
         btton_despacho_producto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btton_despacho_productoActionPerformed(evt);
@@ -53,7 +53,7 @@ public class InterfazDespachador extends javax.swing.JFrame {
         });
 
         btton_ingreso_producto.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btton_ingreso_producto.setText("Ingreso de producto");
+        btton_ingreso_producto.setText("Productos");
         btton_ingreso_producto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btton_ingreso_productoActionPerformed(evt);

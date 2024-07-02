@@ -53,7 +53,7 @@ public class InterfazAdministradorSistema extends javax.swing.JFrame {
         });
 
         btton_despacho_producto.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btton_despacho_producto.setText("Pedidos");
+        btton_despacho_producto.setText("Registros");
         btton_despacho_producto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btton_despacho_productoActionPerformed(evt);
@@ -61,7 +61,7 @@ public class InterfazAdministradorSistema extends javax.swing.JFrame {
         });
 
         btton_ingreso_producto.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btton_ingreso_producto.setText("Almacen");
+        btton_ingreso_producto.setText("Productos");
         btton_ingreso_producto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btton_ingreso_productoActionPerformed(evt);

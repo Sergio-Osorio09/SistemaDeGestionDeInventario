@@ -271,8 +271,8 @@ public class AlmacenamientoAdmin extends javax.swing.JFrame {
             ps.setString(6, txtpeso.getText());
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Datos Guardados Correctamente");
-            mostrardatos();
-            limpiarentradas();
+            //mostrardatos();
+            //limpiarentradas();
 
         } catch(SQLException e){
             System.out.println("Error al registrar producto"+ e);
@@ -281,7 +281,7 @@ public class AlmacenamientoAdmin extends javax.swing.JFrame {
         
 // Obtener el di del usuario y guardarlo junto con el id del producto en una nueva tulpa de la tabla inventario con unidades 0
 
-/*
+
 int usuarioId=0;
         
         try (  PreparedStatement sentencia = CConexion.prepareStatement("SELECT idUsuario FROM usuario WHERE dni = ?");) {
@@ -299,22 +299,23 @@ int usuarioId=0;
                System.out.println("Error al conectar a la base de datos: " + e.getMessage());
            }
         
-        
+        int identifiProducto=0;
+        identifiProducto=Integer.parseInt(txtid.getText());
         try{
             PreparedStatement ps=CConexion.prepareStatement("INSERT INTO `sistemadegestiondeinventario`.`inventario` (`Cantidad_Caja`, `Cantidad_Unidad`, `producto_Producto_id`, `usuario_idUsuario`) VALUES ('?', '?', '?', '?');");
             ps.setInt(1, 0);
             ps.setInt(2, 0);
-            ps.setInt(3, Integer.parseInt(txtid.getText()));
+            ps.setInt(3, identifiProducto);
             ps.setInt(4, usuarioId);
+            //ps.setInt(4, 2);
             ps.executeUpdate();
         } catch(SQLException e){
             System.out.println("Error al registrar producto en inventario"+ e);
+            JOptionPane.showMessageDialog(null, "idUser: "+usuarioId + "|| idProducot: " + identifiProducto);
         }
-        
-     */  
-        
-        
-        
+           
+        mostrardatos();
+        limpiarentradas();       
         
     }//GEN-LAST:event_btnregistrarActionPerformed
 
@@ -430,6 +431,8 @@ int usuarioId=0;
         txtdescripcion.setText("");
         txtcantidad_x_caja.setText("");
         txtpeso.setText("");
+        
+        btnregistrar.setEnabled(true);
     }
 
     

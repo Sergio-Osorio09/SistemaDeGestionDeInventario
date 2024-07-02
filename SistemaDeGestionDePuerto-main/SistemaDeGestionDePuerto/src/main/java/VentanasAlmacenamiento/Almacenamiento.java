@@ -140,11 +140,11 @@ public class Almacenamiento extends javax.swing.JFrame {
                 .addComponent(txtcantidad_x_caja, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(txtpeso, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(56, 56, 56)
                 .addComponent(btnregistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addComponent(btnactualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67))
+                .addGap(29, 29, 29))
         );
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 102));
@@ -389,7 +389,8 @@ public class Almacenamiento extends javax.swing.JFrame {
         txtmarca.setText("");
         txtdescripcion.setText("");
         txtcantidad_x_caja.setText("");
-        txtpeso.setText("");
+        txtpeso.setText("");        
+        btnregistrar.setEnabled(true);
     }
 
     

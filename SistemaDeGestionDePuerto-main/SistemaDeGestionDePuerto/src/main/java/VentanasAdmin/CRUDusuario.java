@@ -56,7 +56,6 @@ public class CRUDusuario extends javax.swing.JFrame {
         combotipo = new javax.swing.JComboBox<>();
         btnregistrar = new javax.swing.JButton();
         btnactualizar = new javax.swing.JButton();
-        btnsalir = new javax.swing.JButton();
         txtDNI = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -123,14 +122,6 @@ public class CRUDusuario extends javax.swing.JFrame {
             }
         });
 
-        btnsalir.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnsalir.setText("SALIR");
-        btnsalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnsalirActionPerformed(evt);
-            }
-        });
-
         txtDNI.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DNI", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -138,23 +129,18 @@ public class CRUDusuario extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnactualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnregistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(combotipo, javax.swing.GroupLayout.Alignment.LEADING, 0, 191, Short.MAX_VALUE)
-                                .addComponent(txtDNI, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtcontrasenia, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtapellido, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtnombre, javax.swing.GroupLayout.Alignment.LEADING)))))
+                    .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btnactualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnregistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(combotipo, javax.swing.GroupLayout.Alignment.LEADING, 0, 191, Short.MAX_VALUE)
+                            .addComponent(txtDNI, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtcontrasenia, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtapellido, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtnombre, javax.swing.GroupLayout.Alignment.LEADING))))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -172,13 +158,11 @@ public class CRUDusuario extends javax.swing.JFrame {
                 .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(combotipo, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(56, 56, 56)
                 .addComponent(btnregistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnactualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
+                .addGap(26, 26, 26))
         );
 
         txtDNI.getAccessibleContext().setAccessibleDescription("");
@@ -354,13 +338,6 @@ public class CRUDusuario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
-        InterfazAdministradorSistema salir = new InterfazAdministradorSistema();
-        salir.setLocationRelativeTo(null);
-        salir.setVisible(true);
-        this.dispose();  
-    }//GEN-LAST:event_btnsalirActionPerformed
-
     private void combotipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combotipoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_combotipoActionPerformed
@@ -428,7 +405,6 @@ public class CRUDusuario extends javax.swing.JFrame {
     private javax.swing.JMenuBar MenuInicio;
     private javax.swing.JButton btnactualizar;
     private javax.swing.JButton btnregistrar;
-    private javax.swing.JButton btnsalir;
     private javax.swing.JComboBox<String> combotipo;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
@@ -480,5 +456,7 @@ public class CRUDusuario extends javax.swing.JFrame {
         txtnombre.setText("");
         txtapellido.setText("");
         txtcontrasenia.setText("");
+        txtDNI.setText("");
+        btnregistrar.setEnabled(true);
     }
 }
