@@ -22,10 +22,12 @@ public class CLogin {
            Clases.CConexion objetoConexion = new Clases.CConexion();
            
            String consulta = "select*from usuario where usuario.DNI = (?) and usuario.Contraseña = (?);";
-           ps = objetoConexion.estableceConexion().prepareStatement(consulta);
-           
+           ps = objetoConexion.estableceConexion().prepareStatement(consulta);           
            String contra = String.valueOf(contraseña.getPassword());
-           
+           /*
+           ps.setString(1, usuario.getText());
+           ps.setString(2, contra);
+           */
            ps.setString(1, usuario.getText());
            ps.setString(2, contra);
            

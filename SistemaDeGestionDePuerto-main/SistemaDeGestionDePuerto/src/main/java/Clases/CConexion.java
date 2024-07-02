@@ -13,8 +13,7 @@ import javax.swing.JOptionPane;
  * @author villa
  */
 public class CConexion {
-    Connection conectar;
-    
+    Connection conectar;    
     String usuario = "root";
     String contraseña = "123456";
     String bd = "sistemadegestiondeinventario";

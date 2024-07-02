@@ -23,13 +23,13 @@ VentanasAdmin\InterfazRegistrosAdmin$9.class
 VentanasAdmin\AlmacenamientoAdmin$4.class
 com\mycompany\sistemadegestiondepuerto\InterfazDespachador$2.class
 com\mycompany\sistemadegestiondepuerto\InterfazLogin$1.class
+com\mycompany\sistemadegestiondepuerto\SistemaDeGestion.class
 VentanasVentas\InterfazVentas$5.class
 VentanasAdmin\CRUDusuario$6.class
 VentanasAdmin\InterfazRegistrosAdmin$18.class
 VentanasVentas\InterfazVentas$2.class
 com\mycompany\sistemadegestiondepuerto\InterfazLogin$4.class
 VentanasVentas\InterfazVentas$9.class
-com\mycompany\sistemadegestiondepuerto\SistemaDeGestionDePuerto.class
 VentanasVentas\InterfazVentas$10.class
 VentanasAdmin\InterfazRegistrosAdmin$12.class
 VentanasAdmin\InterfazRegistrosAdmin$8.class

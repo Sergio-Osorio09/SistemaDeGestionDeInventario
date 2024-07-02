@@ -1,2 +1,4 @@
-VentanasVentas\InterfazVentasTest.class
 Clases\CConexionTest.class
+Clases\CLoginTest.class
+VentanasVentas\InterfazVentasTest.class
+VentanasAdmin\InterfazRegistrosAdminTest.class

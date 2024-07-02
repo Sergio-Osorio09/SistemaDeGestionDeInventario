@@ -5,7 +5,9 @@ public class InterfazLogin extends javax.swing.JFrame {
     public static String usuarioObtenido;
     
     public InterfazLogin() {
-        initComponents();       
+        initComponents(); 
+        //TextoUsuario.setText("46137946"); //test caja blanca 2
+        //TextoContraseña.setText("micontrasenia");
     }
 
     /**
@@ -72,7 +74,7 @@ public class InterfazLogin extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Iniciar Sesión", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 20))); // NOI18N
 
         TextoUsuario.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        TextoUsuario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ID Usuario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        TextoUsuario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DNI", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
         TextoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TextoUsuarioActionPerformed(evt);
@@ -107,6 +109,8 @@ public class InterfazLogin extends javax.swing.JFrame {
                 .addComponent(TextoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
+
+        TextoUsuario.getAccessibleContext().setAccessibleName("DNI");
 
         BotonSalir.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         BotonSalir.setText("Salir");
@@ -161,9 +165,12 @@ public class InterfazLogin extends javax.swing.JFrame {
 
     private void BotonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonIngresarActionPerformed
         Clases.CLogin objetoLogin = new Clases.CLogin();
-        usuarioObtenido=TextoUsuario.getText();
         
-        objetoLogin.validaUsuario(TextoUsuario, TextoContraseña);
+        
+        
+        objetoLogin.validaUsuario(TextoUsuario, TextoContraseña);        
+        usuarioObtenido=TextoUsuario.getText(); 
+        
         this.dispose(); 
     }//GEN-LAST:event_BotonIngresarActionPerformed
     

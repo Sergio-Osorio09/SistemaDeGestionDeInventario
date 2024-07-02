@@ -22,16 +22,11 @@ public class CConexionTest {
     public void testEstableceConexion() {
         CConexion instance = new CConexion();
         Connection result = instance.estableceConexion();
-
-        // Verifica si la conexión es válida (no es nula)
         assertNotNull(result);
-
-        // Si necesitas verificar que la conexión es válida, puedes usar un método como:
         try {
-            result.isValid(1); // Prueba si la conexión está activa
+            result.isValid(1);
             System.out.println("Conexión válida");
         } catch (SQLException e) {
-            // Si hay un error, la conexión no es válida
             System.out.println("Conexión inválida: " + e.getMessage());
             // Puedes agregar una aserción para fallar la prueba
             fail("La conexión no es válida: " + e.getMessage());

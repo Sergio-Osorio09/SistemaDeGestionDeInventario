@@ -280,7 +280,9 @@ public class AlmacenamientoAdmin extends javax.swing.JFrame {
  
         
 // Obtener el di del usuario y guardarlo junto con el id del producto en una nueva tulpa de la tabla inventario con unidades 0
-/*int usuarioId=0;
+
+/*
+int usuarioId=0;
         
         try (  PreparedStatement sentencia = CConexion.prepareStatement("SELECT idUsuario FROM usuario WHERE dni = ?");) {
 
@@ -309,7 +311,7 @@ public class AlmacenamientoAdmin extends javax.swing.JFrame {
             System.out.println("Error al registrar producto en inventario"+ e);
         }
         
-   */     
+     */  
         
         
         
@@ -319,7 +321,7 @@ public class AlmacenamientoAdmin extends javax.swing.JFrame {
     private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
         try{
             PreparedStatement ps=CConexion.prepareStatement
-        ("Update producto set Nombre='"+txtnombre.getText()+"',Marca='"+txtmarca.getText()+"',Descripcion='"+txtdescripcion.getText()+"',Cantidad por caja='"+txtcantidad_x_caja.getText()+"' where idProducto='"+txtid.getText()+"'");
+        ("Update producto set Nombre='"+txtnombre.getText()+"',Marca='"+txtmarca.getText()+"',Descripcion='"+txtdescripcion.getText()+"',Cantidad_x_caja='"+txtcantidad_x_caja.getText()+"', Peso = '"+txtpeso.getText()+"' where Producto_id='"+txtid.getText()+"'");
             int indice=ps.executeUpdate();
             
             if(indice>0){

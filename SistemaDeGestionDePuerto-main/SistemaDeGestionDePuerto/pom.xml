@@ -34,7 +34,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>  <!-- Cambia a la versión de Java que tengas instalada -->
         <maven.compiler.target>11</maven.compiler.target>  <!-- Cambia a la versión de Java que tengas instalada -->
-        <exec.mainClass>com.mycompany.sistemadegestiondepuerto.SistemaDeGestionDePuerto</exec.mainClass>
+        <exec.mainClass>com.mycompany.sistemadegestiondepuerto.SistemaDeGestion</exec.mainClass>
     </properties>
 
     <name>SistemaDeGestionDeInventario</name>
