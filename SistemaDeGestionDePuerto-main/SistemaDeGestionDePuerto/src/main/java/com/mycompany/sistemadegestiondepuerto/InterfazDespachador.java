@@ -4,6 +4,7 @@
  */
 package com.mycompany.sistemadegestiondepuerto;
 
+import VentanasAdmin.AlmacenamientoAdmin;
 import VentanasAlmacenamiento.Almacenamiento;
 
 
@@ -133,7 +134,7 @@ public class InterfazDespachador extends javax.swing.JFrame {
     }//GEN-LAST:event_CerrarSesionActionPerformed
 
     private void btton_ingreso_productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btton_ingreso_productoActionPerformed
-        Almacenamiento a = new Almacenamiento();
+        AlmacenamientoAdmin a = new AlmacenamientoAdmin();
         a.setLocationRelativeTo(null);
         a.setSize(1282,672);
         a.setVisible(true);
