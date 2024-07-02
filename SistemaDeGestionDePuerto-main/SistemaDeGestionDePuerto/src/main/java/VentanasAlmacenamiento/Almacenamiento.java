@@ -266,7 +266,7 @@ public class Almacenamiento extends javax.swing.JFrame {
     private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
         try{
             PreparedStatement ps=CConexion.prepareStatement
-        ("Update producto set Nombre='"+txtnombre.getText()+"',Marca='"+txtmarca.getText()+"',Descripcion='"+txtdescripcion.getText()+"',Cantidad por caja='"+txtcantidad_x_caja.getText()+"' where idProducto='"+txtid.getText()+"'");
+        ("Update producto set Nombre='"+txtnombre.getText()+"',Marca='"+txtmarca.getText()+"',Descripcion='"+txtdescripcion.getText()+"',Cantidad_x_caja='"+txtcantidad_x_caja.getText()+"', Peso = '"+txtpeso.getText()+"' where Producto_id='"+txtid.getText()+"'");
             int indice=ps.executeUpdate();
             
             if(indice>0){
