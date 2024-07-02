@@ -6,6 +6,7 @@ package VentanasAlmacenamiento;
 
 import Clases.CConexion;
 import com.mycompany.sistemadegestiondepuerto.InterfazDespachador;
+import com.mycompany.sistemadegestiondepuerto.InterfazLogin;
 import static com.mycompany.sistemadegestiondepuerto.InterfazLogin.usuarioObtenido;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -45,12 +46,15 @@ public class Almacenamiento extends javax.swing.JFrame {
         txtdescripcion = new javax.swing.JTextField();
         btnregistrar = new javax.swing.JButton();
         btnactualizar = new javax.swing.JButton();
-        btnsalir = new javax.swing.JButton();
         txtcantidad_x_caja = new javax.swing.JTextField();
         txtpeso = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtabledatos = new javax.swing.JTable();
+        MenuInicio = new javax.swing.JMenuBar();
+        Inicio = new javax.swing.JMenu();
+        CerrarSesion = new javax.swing.JMenuItem();
+        AtrasAdmin = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,14 +99,6 @@ public class Almacenamiento extends javax.swing.JFrame {
             }
         });
 
-        btnsalir.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnsalir.setText("SALIR");
-        btnsalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnsalirActionPerformed(evt);
-            }
-        });
-
         txtcantidad_x_caja.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CANTIDAD POR CAJA", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
 
         txtpeso.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PESO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12))); // NOI18N
@@ -126,8 +122,7 @@ public class Almacenamiento extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnregistrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnactualizar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnsalir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnactualizar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -149,9 +144,7 @@ public class Almacenamiento extends javax.swing.JFrame {
                 .addComponent(btnregistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addComponent(btnactualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                .addGap(67, 67, 67))
         );
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 102));
@@ -186,8 +179,8 @@ public class Almacenamiento extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 880, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 864, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,8 +198,8 @@ public class Almacenamiento extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,6 +210,28 @@ public class Almacenamiento extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(26, 26, 26))
         );
+
+        Inicio.setText("Inicio");
+
+        CerrarSesion.setText("Cerrar Sesión");
+        CerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CerrarSesionActionPerformed(evt);
+            }
+        });
+        Inicio.add(CerrarSesion);
+
+        AtrasAdmin.setText("Regresar");
+        AtrasAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AtrasAdminActionPerformed(evt);
+            }
+        });
+        Inicio.add(AtrasAdmin);
+
+        MenuInicio.add(Inicio);
+
+        setJMenuBar(MenuInicio);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -281,14 +296,6 @@ public class Almacenamiento extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnactualizarActionPerformed
 
-    private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
-        InterfazDespachador salir = new InterfazDespachador();
-        salir.setLocationRelativeTo(null);
-        salir.setVisible(true);
-        this.dispose();
-        
-    }//GEN-LAST:event_btnsalirActionPerformed
-
     private void jtabledatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtabledatosMouseClicked
         btnregistrar.setEnabled(false);
         btnactualizar.setEnabled(true);
@@ -310,6 +317,21 @@ public class Almacenamiento extends javax.swing.JFrame {
     private void txtmarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtmarcaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtmarcaActionPerformed
+
+    private void CerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarSesionActionPerformed
+        InterfazLogin login = new InterfazLogin();
+        login.setLocationRelativeTo(null);
+        login.setSize(450,490);
+        login.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_CerrarSesionActionPerformed
+
+    private void AtrasAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtrasAdminActionPerformed
+         InterfazDespachador AdminInterf = new InterfazDespachador();
+        AdminInterf.setLocationRelativeTo(null);
+        AdminInterf.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_AtrasAdminActionPerformed
     
     ///////////////////////////////////////
     
@@ -373,9 +395,12 @@ public class Almacenamiento extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem AtrasAdmin;
+    private javax.swing.JMenuItem CerrarSesion;
+    private javax.swing.JMenu Inicio;
+    private javax.swing.JMenuBar MenuInicio;
     private javax.swing.JButton btnactualizar;
     private javax.swing.JButton btnregistrar;
-    private javax.swing.JButton btnsalir;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

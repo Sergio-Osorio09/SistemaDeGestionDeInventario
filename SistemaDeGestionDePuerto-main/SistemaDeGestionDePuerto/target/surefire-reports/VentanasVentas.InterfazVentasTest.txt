@@ -1,11 +1,11 @@
 -------------------------------------------------------------------------------
 Test set: VentanasVentas.InterfazVentasTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 3.899 s <<< FAILURE! -- in VentanasVentas.InterfazVentasTest
-VentanasVentas.InterfazVentasTest.testLimpiarentradas -- Time elapsed: 3.762 s <<< ERROR!
-java.lang.IllegalArgumentException: setSelectedIndex: 1 out of bounds
-	at java.desktop/javax.swing.JComboBox.setSelectedIndex(JComboBox.java:652)
-	at VentanasVentas.InterfazVentasTest.testLimpiarentradas(InterfazVentasTest.java:47)
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.232 s <<< FAILURE! -- in VentanasVentas.InterfazVentasTest
+VentanasVentas.InterfazVentasTest.testMain -- Time elapsed: 0.102 s <<< FAILURE!
+java.lang.AssertionError: The test case is a prototype.
+	at org.junit.Assert.fail(Assert.java:89)
+	at VentanasVentas.InterfazVentasTest.testMain(InterfazVentasTest.java:26)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

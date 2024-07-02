@@ -5,6 +5,7 @@
 package com.mycompany.sistemadegestiondepuerto;
 
 import VentanasAlmacenamiento.Almacenamiento;
+import VentanasAlmacenamiento.InterfazRegistrosAlmacenero;
 
 
 public class InterfazDespachador extends javax.swing.JFrame {
@@ -135,13 +136,20 @@ public class InterfazDespachador extends javax.swing.JFrame {
     private void btton_ingreso_productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btton_ingreso_productoActionPerformed
         Almacenamiento a = new Almacenamiento();
         a.setLocationRelativeTo(null);
-        a.setSize(1282,672);
+        //a.setSize(1282,672);
         a.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btton_ingreso_productoActionPerformed
 
     private void btton_despacho_productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btton_despacho_productoActionPerformed
         // TODO add your handling code here:
+        
+        InterfazRegistrosAlmacenero a = new InterfazRegistrosAlmacenero();
+        a.setLocationRelativeTo(null);
+        //a.setSize(1282,672);
+        a.setVisible(true);
+        this.dispose();
+        
     }//GEN-LAST:event_btton_despacho_productoActionPerformed
 
     /**

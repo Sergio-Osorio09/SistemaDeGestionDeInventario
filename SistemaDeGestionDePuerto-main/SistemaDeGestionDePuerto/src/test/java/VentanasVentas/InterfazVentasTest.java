@@ -46,9 +46,12 @@ public class InterfazVentasTest {
         
         combotipo.setSelectedIndex(1); // Asignar un valor al combo
         txtid.setText("Valor"); // Asignar un valor al campo de texto
+        
         interfaz.limpiarentradas();
         assertEquals(0, combotipo.getSelectedIndex()); // Verificar que el combo se resetea
         assertEquals("", txtid.getText()); // Verificar que el campo de texto se limpia
     }
+    
+    
     
 }

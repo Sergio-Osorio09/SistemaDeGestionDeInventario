@@ -7,7 +7,7 @@ package com.mycompany.sistemadegestiondepuerto;
 import VentanasAdmin.AlmacenamientoAdmin;
 import VentanasAdmin.CRUDusuario;
 import VentanasAdmin.InterfazRegistrosAdmin;
-import VentanasAlmacenamiento.Almacenamiento;
+//import VentanasAlmacenamiento.Almacenamiento;
 
 public class InterfazAdministradorSistema extends javax.swing.JFrame {
 

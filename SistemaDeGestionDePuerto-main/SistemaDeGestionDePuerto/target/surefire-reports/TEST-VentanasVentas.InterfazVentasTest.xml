@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="VentanasVentas.InterfazVentasTest" time="3.899" tests="1" errors="1" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="VentanasVentas.InterfazVentasTest" time="0.232" tests="1" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,9 +15,9 @@
     <property name="user.country" value="PE"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-17\bin"/>
-    <property name="sun.java.command" value="C:\Users\thens\AppData\Local\Temp\surefire1173787666922861220\surefirebooter-20240617230101723_3.jar C:\Users\thens\AppData\Local\Temp\surefire1173787666922861220 2024-06-17T23-01-01_498-jvmRun1 surefire-20240617230101723_1tmp surefire_0-20240617230101723_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\thens\AppData\Local\Temp\surefire12556261155858513546\surefirebooter-20240701231542055_3.jar C:\Users\thens\AppData\Local\Temp\surefire12556261155858513546 2024-07-01T23-15-41_784-jvmRun1 surefire-20240701231542055_1tmp surefire_0-20240701231542055_2tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="test" value="VentanasVentas.InterfazVentasTest#testLimpiarentradas"/>
+    <property name="test" value="VentanasVentas.InterfazVentasTest#testMain"/>
     <property name="surefire.test.class.path" value="C:\Users\thens\OneDrive\Escritorio\2024-1\Procesos de SW\Proyecto\SistemaDeGestionDeInventario\SistemaDeGestionDePuerto-main\SistemaDeGestionDePuerto\target\test-classes;C:\Users\thens\OneDrive\Escritorio\2024-1\Procesos de SW\Proyecto\SistemaDeGestionDeInventario\SistemaDeGestionDePuerto-main\SistemaDeGestionDePuerto\target\classes;C:\Users\thens\.m2\repository\com\mysql\mysql-connector-j\8.3.0\mysql-connector-j-8.3.0.jar;C:\Users\thens\.m2\repository\com\google\protobuf\protobuf-java\3.21.1\protobuf-java-3.21.1.jar;C:\Users\thens\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\thens\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\thens"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\thens\AppData\Local\Temp\surefire1173787666922861220\surefirebooter-20240617230101723_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\thens\AppData\Local\Temp\surefire12556261155858513546\surefirebooter-20240701231542055_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.6+9-LTS-190"/>
@@ -58,10 +58,10 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testLimpiarentradas" classname="VentanasVentas.InterfazVentasTest" time="3.762">
-    <error message="setSelectedIndex: 1 out of bounds" type="java.lang.IllegalArgumentException"><![CDATA[java.lang.IllegalArgumentException: setSelectedIndex: 1 out of bounds
-	at java.desktop/javax.swing.JComboBox.setSelectedIndex(JComboBox.java:652)
-	at VentanasVentas.InterfazVentasTest.testLimpiarentradas(InterfazVentasTest.java:47)
+  <testcase name="testMain" classname="VentanasVentas.InterfazVentasTest" time="0.102">
+    <failure message="The test case is a prototype." type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: The test case is a prototype.
+	at org.junit.Assert.fail(Assert.java:89)
+	at VentanasVentas.InterfazVentasTest.testMain(InterfazVentasTest.java:26)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -90,6 +90,8 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-]]></error>
+]]></failure>
+    <system-out><![CDATA[main
+]]></system-out>
   </testcase>
 </testsuite>
